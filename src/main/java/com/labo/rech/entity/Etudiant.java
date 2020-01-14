@@ -16,24 +16,59 @@ import javax.persistence.TemporalType;
 
 public class Etudiant  extends Membre{
 	private Date dateInscription;
-	private String Diplome;
+	private String diplome;
 	
 	@ManyToOne(cascade=CascadeType.ALL )
 	private EnseignantChercheur enseignant;
-	
-    @Temporal(TemporalType.TIMESTAMP)
+
+	public Etudiant(Date dateInscription, String diplome, EnseignantChercheur enseignant) {
+		super();
+		this.dateInscription = dateInscription;
+		this.diplome = diplome;
+		this.enseignant = enseignant;
+	}
+
+	/**
+	 * @return the dateInscription
+	 */
 	public Date getDateInscription() {
 		return dateInscription;
 	}
+
+	/**
+	 * @param dateInscription the dateInscription to set
+	 */
 	public void setDateInscription(Date dateInscription) {
 		this.dateInscription = dateInscription;
 	}
-	
+
+	/**
+	 * @return the diplome
+	 */
 	public String getDiplome() {
-		return Diplome;
+		return diplome;
+	}
+
+	/**
+	 * @param diplome the diplome to set
+	 */
+	public void setDiplome(String diplome) {
+		this.diplome = diplome;
+	}
+
+	/**
+	 * @return the enseignant
+	 */
+	public EnseignantChercheur getEnseignant() {
+		return enseignant;
+	}
+
+	/**
+	 * @param enseignant the enseignant to set
+	 */
+	public void setEnseignant(EnseignantChercheur enseignant) {
+		this.enseignant = enseignant;
 	}
 	
-	public void setDiplome(String diplome) {
-		Diplome = diplome;
-	}
+
 }
